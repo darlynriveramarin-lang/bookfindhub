@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>artistas </title>
+</head>
+<body>
+    <section class="banner">
+        <div class="banner-texto">
+            <h2> Artistas mas reconocidos de la industria</h2>
+            <p> artistas</p>
+            <a href="pagina_de_musica.html"> volver</a>
+            
+
+        </div>
+        <article class="tarjeta">
+            <img src="#" alt="artista 1">
+            <div class="tarjeta-contenido">
+                <h3> informacion</h3>
+                <p> mas informacion</p>
+            </div>
+            
+            
+        </article>
+        
+    </section>
+
+    <style>
+        *{box-sizing: border-box;
+}
+ body{
+  background-color:rgb(245, 243, 243);
+  display:flex;
+  flex-direction:column;
+ 
+  align-items:center;
+  width:100%;
+  min-height:100vh;
+  
+  gap:5px;
+  margin:0;
+  padding:0;
+  font-family:"poppins", sans-serif;
+  
+ 
+  
+
+
+}
+        .banner{
+    width: 95%;
+    background-color: #b6aeae;
+    padding: 25px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+        
+        .banner-texto{
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #1a1a2e;
+    margin-bottom: 10px;}
+        .tarjeta{
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 17px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .tarjeta-contenido{
+    padding: 16px 18px;}
+    .tarjeta img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+} 
+.tarjeta h3{
+    margin: 0 0 6px 0;
+    font-size: 1.1em;
+    color: #1a1a2e;
+}
+ 
+.tarjeta p{
+    margin: 0;
+    font-size: 0.85em;
+    color: #444;
+    line-height: 1.4;
+}
+.tarjeta:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.18);
+}
+    </style>
+  
+</body>
+</html>

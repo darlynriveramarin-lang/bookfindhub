@@ -149,7 +149,7 @@ a{
     border: 0; cursor: pointer;
     padding: 11px 24px; border-radius: 10px;
     background: var(--accent); color:white;
-    background-color:orange;);
+    background-color:orange;
     font: inherit; font-weight: 600; font-size: .9rem;
     box-shadow: 0 4px 12px rgba(217, 119, 6, .3);
     transition: background .2s;

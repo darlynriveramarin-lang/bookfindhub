@@ -8,7 +8,38 @@
     --line: #f0e6d3;
     --card: #ffffff;
 }
- 
+ .boton-signup {
+    display: flex;
+    min-width: 120px;
+    height: 50px;
+    background-color: white;
+    border: 2px solid orange;
+    transition: background-color 0.2s;
+}
+
+.texto-signup {
+    color: orange;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    margin-left: 0;          
+    padding: 0 14px;
+    transition: color 0.2s;
+}
+
+
+.boton-signup:hover {
+    background-color: orange;
+}
+
+.boton-signup:hover .texto-signup {
+    color: white;
+}
+   
 
 .login-main {
     flex: 1;

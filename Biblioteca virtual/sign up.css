@@ -1,31 +1,111 @@
 
 .login-card {
-    max-width: 480px;
+    max-width: 500px;
 }
 
 
 .fila-doble {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));  
     gap: 14px;
 }
 
+
+.fila-doble > div {
+    min-width: 0;
+}
 
 .fila-doble .campo {
     min-width: 0;
 }
 
 
-.campo select {
-    flex: 1;
-    border: 0;
-    outline: 0;
-    background: transparent;
-    padding: 13px 0;
-    font: inherit;
-    font-size: 0.95rem;
+.campo input {
+    min-width: 0;
+    width: 100%;
+}
+
+.campo select option {
+    background-color: #fffdf8;
     color: var(--ink);
-    cursor: pointer;
+    padding: 10px 14px;
+}
+
+.campo select option:disabled {
+    color: var(--muted);
+}
+
+
+@supports (appearance: base-select) {
+
+   
+    .campo select,
+    .campo select::picker(select) {
+        appearance: base-select;
+    }
+
+ 
+    .campo select {
+        padding: 13px 0;
+        border: 0;
+        background: transparent;
+        width: 100%;
+    }
+
+   
+    .campo select::picker-icon {
+        color: var(--muted);
+        transition: rotate 0.5s;
+    }
+    .campo select:open::picker-icon {
+        rotate: 180deg;
+        color: var(--accent);
+    }
+
+  
+    .campo select::picker(select) {
+        margin-top: 8px;
+        padding: 8px;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: 0 12px 32px rgba(120, 80, 20, 0.18);
+    }
+
+    
+    .campo select option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: background-color 0.15s;
+    }
+
+    /* Al pasar el mouse o navegar con el teclado */
+    .campo select option:hover,
+    .campo select option:focus-visible {
+        background-color: #e0caa3;
+    }
+
+    
+    .campo select option:checked {
+        background-color: #fab355bb;
+        color: var(--accent-dark);
+        font-weight: 600;
+    }
+
+    
+    .campo select option::checkmark {
+        display: none;
+    }
+
+   
+    .campo select option:disabled {
+        display: none;
+    }
 }
 
 

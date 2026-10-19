@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primero tu CSS general (header y footer), luego el del login -->
+    <link rel="stylesheet" href="biblioteca.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" href="descarga.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Iniciar sesión | BookFind Hub</title>
+</head>
+<body>
+ 
+
+    <header class="encabezado">
+        <div class="logo-contenedor">
+            <img src="descarga.png" class="logo" alt="logo de la empresa">
+            <h3>BookFind Hub</h3>
+        </div>
+        <nav class="contenedor-enlaces">
+            <a class="enlaces" href="index.html">Discover</a>
+            <a class="enlaces" href="#">Categorias</a>
+            <a class="enlaces" href="#">2Categoria</a>
+        </nav>
+        <div class="boton-login">
+            <a class="texto-login" href="login.html"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+        </div>
+    </header>
+ 
+    <main class="login-main">
+        <section class="login-card">
+ 
+            <div class="login-icono">
+               <i class="fa-solid fa-book-open-reader"></i>
+            </div>
+ 
+            <h1>Iniciar sesión</h1>
+            <p class="login-subtitulo">Entra a tu biblioteca privada</p>
+ 
+            <form class="login-form" action="#" method="post">
+ 
+              
+                <label class="campo-etiqueta" for="correo">Correo electrónico</label>
+                <div class="campo">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" autocomplete="email" required>
+                </div>
+ 
+              
+                <label class="campo-etiqueta" for="clave">Contraseña</label>
+                <div class="campo">
+                    <i class="fa-solid fa-user-lock"></i>
+                    <input type="password" id="clave" name="clave" placeholder="Tu contraseña" autocomplete="current-password" required>
+                </div>
+ 
+           
+                <div class="login-opciones">
+                    <label class="recordar">
+                        <input type="checkbox" name="recordar">
+                        Recordarme
+                    </label>
+                    <a class="link-olvide" href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+ 
+                <button class="btn-login" type="submit">
+                    <i class="fa-solid fa-right-to-bracket"></i> Entrar
+                </button>
+            </form>
+ 
+            <p class="login-registro">
+                ¿No tienes cuenta? <a href="#">Regístrate</a>
+            </p>
+ 
+        </section>
+    </main>
+ 
+    <footer>
+        <p>&copy; 2026 BookFind Hub</p>
+    </footer>
+ 
+</body>
+</html>

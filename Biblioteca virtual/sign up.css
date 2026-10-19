@@ -1,0 +1,60 @@
+
+.login-card {
+    max-width: 480px;
+}
+
+
+.fila-doble {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+
+.fila-doble .campo {
+    min-width: 0;
+}
+
+
+.campo select {
+    flex: 1;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    padding: 13px 0;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+
+.ayuda {
+    display: block;
+    margin: -12px 0 18px;
+    font-size: 0.78rem;
+    color: var(--muted);
+}
+
+
+.terminos {
+    margin-bottom: 22px;
+    font-size: 0.85rem;
+}
+
+.campo:has(input:invalid:not(:placeholder-shown)) {
+    border-color: #dc2626;
+}
+
+.campo:has(input:valid:not(:placeholder-shown)) {
+    border-color: #16a34a;
+}
+
+
+@media (max-width: 480px) {
+  
+    .fila-doble {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BookFind Hub</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='biblioteca.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='descarga.png') }}">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- Encabezado -->
+    <header class="encabezado">
+
+         <a href="{{url_for('inicio')}}">
+            <div class="logo-contenedor">
+            <img
+                src="{{ url_for('static', filename='descarga.png') }}"
+                class="logo"
+                alt="Logo de BookFind Hub"
+            >
+
+            <h3>BookFind Hub</h3>
+        </div>
+        </a>
+
+        <nav class="contenedor-enlaces">
+            <a class="enlaces" href="#catalog">Publicar</a>
+            <a class="enlaces" href="#catalog">Descubrir</a>
+            <a class="enlaces" href="#catalog">Colecciones</a>
+        </nav>
+
+        <div class="boton-login">
+            <a class="texto-login" href="{{ url_for('login') }}">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </a>
+        </div>
+        <div class="boton-signup">
+         <a class="texto-login" href="{{ url_for('registro') }}">
+        <i class="fa-solid fa-user-plus"></i>
+            Sign Up
+        </a>
+        </div>
+    </header>
+
+    <!-- Banner principal -->
+    <section class="banner">
+
+        <div class="welcome">
+            <span class="badge">Bienvenido a BookFind Hub</span>
+
+            <h1>
+                Tu puerta digital al
+                <em><br>conocimiento eterno.</em>
+            </h1>
+
+            <p class="descripcion">
+                Descubre, descarga y organiza tus libros favoritos.
+                Accede a miles de títulos de distintos géneros con un solo clic.
+            </p>
+        </div>
+
+        <!-- Buscador -->
+        <form
+            class="buscador"
+            id="searchForm"
+            role="search"
+            action="#catalog"
+            method="get"
+        >
+            <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+            >
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="m20 20-3.5-3.5"></path>
+            </svg>
+
+            <input
+                id="searchInput"
+                name="q"
+                type="search"
+                placeholder="Busca por título, autor o categoría..."
+                aria-label="Buscar libros"
+            >
+
+            <button class="btn" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Buscar
+            </button>
+        </form>
+
+        <!-- Información -->
+        <div class="informacion">
+            <span>
+                <i class="fa-solid fa-book"></i>
+                10K+ libros
+            </span>
+
+            <span>
+                <i class="fa-regular fa-calendar-check"></i>
+                Actualizaciones diarias
+            </span>
+
+            <span>
+                <i class="fa-solid fa-lock"></i>
+                Biblioteca privada
+            </span>
+        </div>
+
+    </section>
+
+    <!-- Catálogo -->
+    <section class="catalog" id="catalog">
+
+        <div class="container">
+
+            <div class="catalog-head">
+
+                <div>
+                    <span class="badge">Explora el catálogo</span>
+
+                    <h2>Colecciones destacadas</h2>
+
+                    <p>
+                        Libros seleccionados de todo el mundo,
+                        actualizados cada día por nuestro equipo editorial.
+                    </p>
+                </div>
+
+                <div class="tabs" id="tabs" role="tablist"></div>
+
+            </div>
+
+            <div
+                class="grid"
+                id="grid"
+                aria-live="polite"
+            ></div>
+
+        </div>
+
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 BookFind Hub</p>
+    </footer>
+
+</body>
+</html>

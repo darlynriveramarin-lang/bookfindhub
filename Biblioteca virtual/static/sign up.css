@@ -1,30 +1,27 @@
-
+/* Tarjeta del formulario de registro */
 .login-card {
     max-width: 500px;
 }
 
-
+/* Campos que aparecen en dos columnas */
 .fila-doble {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));  
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
 }
 
-
-.fila-doble > div {
-    min-width: 0;
-}
-
+.fila-doble > div,
 .fila-doble .campo {
     min-width: 0;
 }
 
-
+/* Evitar que los campos se desborden */
 .campo input {
-    min-width: 0;
     width: 100%;
+    min-width: 0;
 }
 
+/* Opciones de los selectores */
 .campo select option {
     background-color: #fffdf8;
     color: var(--ink);
@@ -35,34 +32,30 @@
     color: var(--muted);
 }
 
-
+/* Estilos modernos para selectores compatibles con el navegador */
 @supports (appearance: base-select) {
-
-   
     .campo select,
     .campo select::picker(select) {
         appearance: base-select;
     }
 
- 
     .campo select {
+        width: 100%;
         padding: 13px 0;
         border: 0;
         background: transparent;
-        width: 100%;
     }
 
-   
     .campo select::picker-icon {
         color: var(--muted);
         transition: rotate 0.5s;
     }
+
     .campo select:open::picker-icon {
         rotate: 180deg;
         color: var(--accent);
     }
 
-  
     .campo select::picker(select) {
         margin-top: 8px;
         padding: 8px;
@@ -72,7 +65,6 @@
         box-shadow: 0 12px 32px rgba(120, 80, 20, 0.18);
     }
 
-    
     .campo select option {
         display: flex;
         align-items: center;
@@ -84,31 +76,27 @@
         transition: background-color 0.15s;
     }
 
-    /* Al pasar el mouse o navegar con el teclado */
     .campo select option:hover,
     .campo select option:focus-visible {
         background-color: #e0caa3;
     }
 
-    
     .campo select option:checked {
         background-color: #fab355bb;
         color: var(--accent-dark);
         font-weight: 600;
     }
 
-    
     .campo select option::checkmark {
         display: none;
     }
 
-   
     .campo select option:disabled {
         display: none;
     }
 }
 
-
+/* Texto de ayuda */
 .ayuda {
     display: block;
     margin: -12px 0 18px;
@@ -116,12 +104,13 @@
     color: var(--muted);
 }
 
-
+/* Términos y condiciones */
 .terminos {
     margin-bottom: 22px;
     font-size: 0.85rem;
 }
 
+/* Validación visual de los campos */
 .campo:has(input:invalid:not(:placeholder-shown)) {
     border-color: #dc2626;
 }
@@ -130,9 +119,8 @@
     border-color: #16a34a;
 }
 
-
+/* Diseño adaptable a teléfonos */
 @media (max-width: 480px) {
-  
     .fila-doble {
         grid-template-columns: 1fr;
         gap: 0;

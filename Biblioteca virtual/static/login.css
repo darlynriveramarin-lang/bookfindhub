@@ -8,39 +8,8 @@
     --line: #f0e6d3;
     --card: #ffffff;
 }
- .boton-signup {
-    display: flex;
-    min-width: 120px;
-    height: 50px;
-    background-color: white;
-    border: 2px solid orange;
-    transition: background-color 0.2s;
-}
 
-.texto-signup {
-    color: orange;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    height: 100%;
-    margin-left: 0;          
-    padding: 0 14px;
-    transition: color 0.2s;
-}
-
-
-.boton-signup:hover {
-    background-color: orange;
-}
-
-.boton-signup:hover .texto-signup {
-    color: white;
-}
-   
-
+/* Contenedor principal */
 .login-main {
     flex: 1;
     width: 100%;
@@ -48,10 +17,14 @@
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
-    background: radial-gradient(ellipse at 90% 80%, var(--bg-soft), transparent 60%);
+    background: radial-gradient(
+        ellipse at 90% 80%,
+        var(--bg-soft),
+        transparent 60%
+    );
 }
- 
 
+/* Tarjeta de inicio de sesión y registro */
 .login-card {
     width: 100%;
     max-width: 420px;
@@ -61,9 +34,9 @@
     padding: 36px 32px;
     box-shadow: 0 8px 28px rgba(120, 80, 20, 0.12);
     text-align: center;
-    box-shadow:0 2px 10px rgba(3, 3, 3, 0.3);
 }
- 
+
+/* Icono superior */
 .login-icono {
     width: 60px;
     height: 60px;
@@ -76,9 +49,10 @@
     font-size: 26px;
     color: var(--accent);
 }
- 
+
+/* Título */
 .login-card h1 {
-    font-family:'Times New Roman', Times, serif;
+    font-family: "Times New Roman", Times, serif;
     font-weight: 400;
     font-size: 2.6rem;
     letter-spacing: 0.03em;
@@ -86,28 +60,30 @@
     color: var(--ink);
     margin: 0;
 }
- 
+
+/* Subtítulo */
 .login-subtitulo {
     color: var(--muted);
     font-size: 0.95rem;
     margin: 8px 0 28px;
 }
- 
 
+/* Formulario */
 .login-form {
     display: flex;
     flex-direction: column;
     text-align: left;
 }
- 
+
+/* Etiquetas */
 .campo-etiqueta {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--ink);
     margin-bottom: 6px;
 }
- 
 
+/* Contenedor de cada campo */
 .campo {
     display: flex;
     align-items: center;
@@ -119,23 +95,25 @@
     border-radius: 12px;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
- 
+
 .campo i {
     color: var(--muted);
 }
- 
 
+/* Efectos de enfoque */
 .campo:focus-within {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
 }
- 
+
 .campo:focus-within i {
     color: var(--accent);
 }
- 
+
+/* Entradas de texto */
 .campo input {
     flex: 1;
+    min-width: 0;
     border: 0;
     outline: 0;
     background: transparent;
@@ -145,6 +123,7 @@
     color: var(--ink);
 }
 
+/* Opciones adicionales del login */
 .login-opciones {
     display: flex;
     justify-content: space-between;
@@ -154,7 +133,7 @@
     margin-bottom: 22px;
     font-size: 0.85rem;
 }
- 
+
 .recordar {
     display: flex;
     align-items: center;
@@ -162,27 +141,28 @@
     color: var(--muted);
     cursor: pointer;
 }
- 
+
 .recordar input {
-    accent-color: var(--accent);   
+    accent-color: var(--accent);
     width: 16px;
     height: 16px;
 }
- 
 
+/* Enlaces dentro de la tarjeta */
 .login-card a {
     margin-left: 0;
     color: var(--accent);
     font-weight: 600;
 }
- 
+
 .login-card a:hover {
     color: var(--accent-dark);
     text-decoration: underline;
 }
- 
 
+/* Botón principal */
 .btn-login {
+    width: 100%;
     border: 0;
     cursor: pointer;
     padding: 14px;
@@ -195,21 +175,21 @@
     box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
     transition: background-color 0.2s;
 }
- 
+
 .btn-login i {
     margin-right: 6px;
 }
- 
+
 .btn-login:hover {
     background-color: var(--accent-dark);
 }
- 
+
 .btn-login:focus-visible {
     outline: 2px solid var(--ink);
     outline-offset: 2px;
 }
- 
 
+/* Enlace inferior de registro */
 .login-registro {
     margin: 24px 0 0;
     padding-top: 20px;
@@ -217,10 +197,30 @@
     font-size: 0.9rem;
     color: var(--muted);
 }
- 
 
+/* Mensajes de Flask */
+.mensaje-exito,
+.mensaje-error {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.mensaje-exito {
+    color: #15803d;
+}
+
+.mensaje-error {
+    color: #c62828;
+}
+
+/* Adaptación para teléfonos */
 @media (max-width: 480px) {
     .login-card {
         padding: 28px 20px;
+    }
+
+    .login-card h1 {
+        font-size: 2.2rem;
     }
 }

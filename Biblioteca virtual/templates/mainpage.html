@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BookFind Hub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='biblioteca.css') }}">
+
+    <link rel="icon"
+          href="{{ url_for('static', filename='descarga.png') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Encabezado -->
+    <header class="encabezado">
+
+        <a href="{{ url_for('biblioteca_usuario') }}">
+            <div class="logo-contenedor">
+                <img
+                    src="{{ url_for('static', filename='descarga.png') }}"
+                    class="logo"
+                    alt="Logo de BookFind Hub"
+                >
+                <h3>BookFind Hub</h3>
+            </div>
+        </a>
+
+        <nav class="contenedor-enlaces">
+            <a class="enlaces"
+               href="{{ url_for('publicar_libro') }}">
+                Publicar
+            </a>
+
+            <a class="enlaces" href="#catalog">
+                Descubrir
+            </a>
+
+            <a class="enlaces" href="#catalog">
+                Colecciones
+            </a>
+        </nav>
+
+        <form action="{{ url_for('logout') }}"
+              method="POST"
+              class="form-logout">
+
+            <button type="submit" class="boton-logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+        </form>
+
+    </header>
+
+    <!-- Banner principal -->
+    <section class="banner">
+
+        <div class="welcome">
+            <span class="badge">
+                Descubre y sueña en BookFind Hub
+            </span>
+
+            <h1>
+                Tu puerta digital al
+                <em><br>conocimiento eterno.</em>
+            </h1>
+
+            <p class="descripcion">
+                Descubre, descarga y organiza tus libros favoritos.
+                Accede a distintos géneros con un solo clic.
+            </p>
+        </div>
+
+        <!-- Buscador -->
+        <form
+            class="buscador"
+            id="searchForm"
+            role="search"
+            action="{{ url_for('biblioteca_usuario') }}#catalog"
+            method="get"
+        >
+            <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+            >
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="m20 20-3.5-3.5"></path>
+            </svg>
+
+            <input
+                id="searchInput"
+                name="q"
+                type="search"
+                placeholder="Busca por título, autor o categoría..."
+                aria-label="Buscar libros"
+                value="{{ request.args.get('q', '') }}"
+            >
+
+            <button class="btn" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Buscar
+            </button>
+        </form>
+
+        <!-- Información -->
+        <div class="informacion">
+            <span>
+                <i class="fa-solid fa-book"></i>
+                Catálogo de libros
+            </span>
+
+            <span>
+                <i class="fa-regular fa-calendar-check"></i>
+                Libros publicados por usuarios
+            </span>
+
+            <span>
+                <i class="fa-solid fa-lock"></i>
+                Acceso con sesión
+            </span>
+        </div>
+
+    </section>
+
+    <!-- Catálogo -->
+    <section class="catalog" id="catalog">
+
+        <div class="container">
+
+            <div class="catalog-head">
+
+                <div>
+                    <span class="badge">Explora el catálogo</span>
+
+                    <h2>Colecciones destacadas</h2>
+
+                    <p>
+                        Explora los libros publicados en BookFind Hub
+                        y encuentra tu próxima lectura.
+                    </p>
+                </div>
+
+                <div class="tabs" id="tabs" role="tablist">
+                    <span class="badge">Todos los libros</span>
+                </div>
+
+            </div>
+
+            <!-- Libros consultados desde MySQL -->
+            <div class="grid" id="grid" aria-live="polite">
+
+                {% for libro in libros %}
+
+                <article class="libro-card">
+
+                    <img
+                        src="{{ url_for('static', filename=libro['imagen_portada']) }}"
+                        alt="Portada de {{ libro['titulo'] }}"
+                        loading="lazy"
+                    >
+
+                    <div class="libro-info">
+
+                        <h3>{{ libro['titulo'] }}</h3>
+
+                        <p>
+                            <strong>Autor:</strong>
+                            {{ libro['autor'] }}
+                        </p>
+
+                        <p>
+                            <strong>Categoría:</strong>
+                            {{ libro['categoria'] }}
+                        </p>
+
+                        <p>
+                            <strong>Editorial:</strong>
+                            {{ libro['editorial'] }}
+                        </p>
+
+                        {% if libro['ano_publicacion'] %}
+                        <p>
+                            <strong>Año:</strong>
+                            {{ libro['ano_publicacion'] }}
+                        </p>
+                        {% endif %}
+
+                        <p>
+                            <strong>Ejemplares:</strong>
+                            {{ libro['cantidad'] }}
+                        </p>
+
+                        <a
+                            href="{{ url_for('descargar_libro', id_libro=libro['id_libro']) }}"
+                            class="btn"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fa-solid fa-book-open"></i>
+                            Leer libro
+                        </a>
+
+                    </div>
+
+                </article>
+
+                {% else %}
+
+                <p class="sin-libros">
+                    {% if request.args.get('q') %}
+                        No encontramos libros que coincidan con tu búsqueda.
+                    {% else %}
+                        Todavía no hay libros publicados.
+                        ¡Sé el primero en compartir uno!
+                    {% endif %}
+                </p>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 BookFind Hub</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+
+# Libros y documentos subidos por los usuarios
+static/libros/
+static/uploads/libros/
+uploads/libros/
+
+# Imágenes de portadas de libros
+static/imagenes/libros/
+static/images/libros/
+
+# Archivos de libros
+*.pdf
+*.epub
+*.mobi
+
+# Archivos de configuración sensibles
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]

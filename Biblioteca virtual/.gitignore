@@ -1,12 +1,8 @@
 
 # Libros y documentos subidos por los usuarios
-static/libros/
-static/uploads/libros/
-uploads/libros/
-
-# Imágenes de portadas de libros
-static/imagenes/libros/
-static/images/libros/
+static/uploads/
+static/uploads/portadas/
+uploads/portadas/
 
 # Archivos de libros
 *.pdf
